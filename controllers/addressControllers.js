@@ -51,7 +51,7 @@ const createAddress = async (req, res, next) => {
   if (!name || !address || !latitude || !longitude) {
     return res
       .status(400)
-      .json({ error: "Please provide all required information" });
+      .json({ message: "Please provide all required information" });
   }
 
   const coordinates = [longitude, latitude];
@@ -118,7 +118,7 @@ const updateAddress = async (req, res, next) => {
   if (!name || !address || !latitude || !longitude) {
     return res
       .status(400)
-      .json({ error: "Please provide all required information" });
+      .json({ message: "Please provide all required information" });
   }
 
   const coordinates = [longitude, latitude];
@@ -231,7 +231,7 @@ const getAddressesWithinDistance = async (req, res, next) => {
   if (!latitude || !longitude || !distance) {
     return res
       .status(400)
-      .json({ error: "Please provide latitude, longitude, and distance" });
+      .json({ message: "Please provide latitude, longitude, and distance" });
   }
 
   const coordinates = [parseFloat(longitude), parseFloat(latitude)];
@@ -259,4 +259,10 @@ const getAddressesWithinDistance = async (req, res, next) => {
 module.exports = getAddressesWithinDistance;
 
 
-module.exports = {createAddress, updateAddress, deleteAddress, getAddressesWithinDistance}
+
+module.exports = {
+  createAddress,
+  updateAddress,
+  deleteAddress,
+  getAddressesWithinDistance,
+};
